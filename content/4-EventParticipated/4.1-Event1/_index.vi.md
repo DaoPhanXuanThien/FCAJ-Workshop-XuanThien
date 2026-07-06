@@ -85,6 +85,13 @@ Sự kiện có khu vực theo dõi tại tầng 36 dành cho khách mời xem l
 * Định hướng tiếp theo
 * Cảm ơn và Q&A
 
+
+#### BÀI HỌC RÚT RA
+* "Context Is Everything" – Ngữ cảnh quyết định sự thành bại của AI
+* Hiểu rõ tính chất bất định của các thiết lập LLM (The Myth of Determinism)
+* Từ Single-Agent đến Multi-Agent: Xu hướng tất yếu cho bài toán doanh nghiệp
+* Chấp nhận thất bại và linh hoạt chuyển hướng (Pivot) khi chạy nước rút
+
 ### Minh chứng tham gia
 
 Hình ảnh dưới đây thể hiện thông tin đăng ký/tham gia sự kiện FCAJ Community Day.

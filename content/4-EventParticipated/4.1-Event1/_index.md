@@ -85,6 +85,12 @@ Settle into your seat at floor 36.
 * What's Next
 * Thank you and Q&A
 
+#### KEY TAKEAWAYS
+* * "Context Is Everything" – Context determines the success or failure of AI
+* Understanding the inherent non-determinism of LLM settings (The Myth of Determinism)
+* From Single-Agent to Multi-Agent: An inevitable trend for enterprise solutions
+* Embracing failure and pivoting flexibly during sprints
+
 ### Proof of Participation
 
 The image below shows my registration/participation information for the FCAJ Community Day event.
