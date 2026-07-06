@@ -1,108 +1,90 @@
 ---
 title: "Bản đề xuất"
-date: 2024-01-01
+date: 2026-07-06
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# ĐỀ XUẤT DỰ ÁN: HỆ THỐNG PHÂN TÍCH VÀ CẢNH BÁO GIÁ CỔ PHIẾU (STOCK ALERTS SYSTEM)
+## Giải pháp AWS Serverless & AI Agent toàn diện cho Trader chuyên nghiệp
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+### 1. Tóm tắt điều hành
+Dự án nhằm xây dựng một hệ thống phân tích, lập luận logic và cảnh báo giá cổ phiếu tự động theo thời gian thực dựa trên nền tảng điện toán đám mây AWS Serverless Architecture phối hợp cùng trí tuệ nhân tạo Claude (Amazon Bedrock). Hệ thống phục vụ cho các Trader trong việc giám sát thị trường, tự động tính toán chỉ số kỹ thuật và tạo báo cáo phân tích sâu sắc để gửi tới Khách hàng cuối (End-user). Bằng cách tách biệt phần xử lý số liệu định lượng và lý luận ngôn ngữ của AI , hệ thống đảm bảo độ chính xác tuyệt đối, giảm thiểu tối đa hiện tượng ảo tưởng (hallucination) của AI và hoạt động theo cơ chế Human-in-the-loop để kiểm duyệt an toàn trước khi xuất bản chiến lược.
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+### 2. Tuyên bố vấn đề
+	Vấn đề hiện tại: Các Trader thường phải đối mặt với lượng thông tin khổng lồ từ thị trường bao gồm biểu đồ kỹ thuật và tin tức vĩ mô biến động từng phút. Việc phân tích thủ công tốn nhiều thời gian, dễ bỏ lỡ cơ hội hoặc đưa ra quyết định cảm tính. Bên cạnh đó, nếu sử dụng các mô hình AI thông thường để phân tích tài chính, chúng rất dễ làm toán sai (sai lệch chỉ số kỹ thuật RSI, MACD) hoặc bịa đặt tin tức (ảo tưởng AI) gây rủi ro lớn trong đầu tư.  
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+	*Giải pháp: Hệ thống giải quyết triệt để bằng cách tách đôi tác vụ: Code Python chạy trên AWS Lambda chịu trách nhiệm tính toán chỉ số kỹ thuật chính xác 100% , sau đó nhồi làm ngữ cảnh (RAG) để AI Agent (Claude Opus/Sonnet) lập luận đưa ra khuyến nghị chất lượng cao. Giao diện Dashboard được bảo mật giúp Trader dễ dàng "Chỉnh sửa nhanh" hoặc "Duyệt & Gửi" chiến lược sang cho Khách hàng qua Email/SNS.
+	
+	Lợi ích và hoàn vốn đầu tư (ROI): Tối ưu hóa 90% thời gian tổng hợp dữ liệu của Trader. Chi phí vận hành hạ tầng AWS áp dụng chiến lược tối ưu tiệm cận 0 ĐỒNG nhờ tận dụng triệt để gói AWS Free Tier cho đồ án.
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+### 3. Kiến trúc giải pháp
+	Hệ thống được thiết kế theo mô hình 100% Serverless (Pay-as-you-go), chia làm 4 tầng độc lập chuẩn DevOps:  Tầng Frontend & Dashboard: Build bằng .JS, deploy lên S3 Static Hosting tích hợp CloudFront CDN giúp phân phối tốc độ cao mà không cần thuê server web. 
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+	Tầng Ingestion & Math Engine: Sử dụng các hàm AWS Lambda tách biệt tác vụ cào dữ liệu thô và xử lý số liệu. Dữ liệu lịch sử lấy từ yfinance , dữ liệu real-time từ yahoo-finance API.
+	
+	Tầng AI Analytics Engine: Trí tuệ nhân tạo Claude (Amazon Bedrock) làm bộ não lý luận phục vụ giải thích mô hình (Explainable AI).
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+	Tầng Database & Storage: Amazon S3 lưu raw file JSON và Amazon DynamoDB lưu dữ liệu time-series có cấu trúc.
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+### 4. Triển khai kỹ thuật
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+Luồng vận hành 6 bước khép kín (End-to-End Workflow)
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+		Kích hoạt & Cào dữ liệu: EventBridge kích hoạt Ingestion Lambda theo giờ thị trường chứng khoán để lấy data từ Yahoo Finance rồi đẩy vào S3.
+		
+		Tính toán số liệu định lượng: S3 Event Notification đẩy message vào SQS Main Queue nhằm throttle concurrency (tránh nghẽn/quá tải Lambda). Processing Lambda đọc message và dùng thư viện pandas-ta để tính toán chính xác chỉ số RSI, MACD.
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+		Phân tích AI (GenAI Reasoning): Gọi Claude qua Bedrock bằng Prompt động. Ép Claude xuất cấu trúc JSON nghiêm ngặt chứa Khuyến nghị, Điểm tự tin (Confidence Score) và Chuỗi lập luận logic. Tín hiệu có Score < 75 sẽ tự động bị loại bỏ.
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+		Lưu trữ Time-Series: Kết quả ghi vào DynamoDB mã hóa bằng AWS KMS Key với thiết kế Composite Primary Key (PK: TICKER#<Mã_Cổ_Phiếu> và SK: TIMESTAMP#<YYYYMMDD-HHMMSS>) giúp truy vấn dữ liệu 30 ngày dưới 10ms.
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+		Bắn Alerts & Đẩy lên Dashboard: Lambda gọi trực tiếp Telegram Bot API (phương thức sendMessage) cảnh báo cho Trader. Trader đăng nhập Dashboard qua Amazon Cognito nhận mã JWT, đi qua API Gateway có sẵn tính năng Rate-Limiting để chống DDoS.
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+		Kiểm duyệt cuối (Human-in-the-loop): Trader đối chiếu biểu đồ nến (TradingView Lightweight Charts) và lập luận của AI để bấm nút duyệt gửi cho Khách hàng.
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+### 5. Lộ trình & Mốc triển khai
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+	Tháng 5: Học AWS và tìm hiểu về các SERVICES sẽ sử dụng trong project.
+	Tháng 6: Thiết kế, điều chỉnh kiến trúc và phân chia công việc cho các thành viên.
+	Tháng 7: Triển khai project, kiểm thử và fix lỗi.
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+### 6. Ước tính ngân sách (Budget Estimation)
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+	- Amazon EventBridge: ~8,800 sự kiện kích hoạt Miễn phí  0.00 USD
+	- AWS Lambda:         ~17,600 lượt chạy (Cào + Xử lý) 0.00 USD/1 triệu request
+	- Amazon SQS:         ~17,600 thông điệp (Main + DLQ) 0.00 USD/1 triệu request
+	- Amazon S3           ~Lưu trữ JSON thô (~200 MB/tháng) 0.00 USD/5GB
+	- Amazon DynamoDB     ~2,200 bản ghi dữ liệu phân tích 0.00 USD/25GB
+	- Amazon API Gateway  ~5,000 lượt gọi từ Dashboard 0.00 USD/1 triệu request
+	- Amazon Cognito1     ~Tài khoản quản trị (Trader) 0.00 USD/50.000 MAU miễn phí
+	- AWS SSM Parameter   ~Store Lưu trữ API Keys an toàn 0.00 USD/Standard Parameter
+	- Amazon CloudWatch   ~Metric & Logs 0.00 USD/dưới 5GB
+	- Amazon Bedrock (3.5 Sonnet) ~9.90 USD/2,200 requests phân tích
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+*Tổng ngân sách hạ tầng AWS cố định: 0 ĐỒNG*
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
+Giai đoạn DEV / TEST (Dùng Claude 3.5 Sonnet): * Input: ~1,500 tokens (dữ liệu TA + text tin tức vĩ mô) -> 2,200 \times 1,500 = 3.3M tokens. Giá: 3.00 USD / 1M tokens. Chi phí = 9.90 USD -> Tổng chi phí khi Dev bằng Sonnet: 19.80 USD / tháng.
 
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
+Ngân sách biến đổi cho AI Agent: Khoảng 19.80 USD/tháng (chỉ phát sinh khi dev chạy thực tế).
 
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+### 7. Đánh giá rủi ro
+
+	- Rủi ro 1: Vượt ngưỡng chi phí AI (Bedrock Token Burst): Nếu thị trường biến động mạnh, số lượng mã đạt điểm tự tin >= 75 tăng đột biến dẫn đến gọi Claude liên tục gây tốn tiền token
+		- Chiến lược giảm thiểu: Đặt tính năng giới hạn cứng (Quota/Rate-limit) số lần gọi Bedrock tối đa trong một ngày ngay trong code Lambda. Sử dụng Claude 3.5 Sonnet làm nền tảng chính để tiết kiệm chi phí.
+
+	- Rủi ro 2: Lỗi nghẽn hệ thống khi nhiều file đổ về S3 cùng lúc 
+		- Chiến lược giảm thiểu: Đã giải quyết triệt để ở bản nâng cấp V3.1 bằng cách chèn SQS Main Queue làm bộ đệm trung gian để throttle concurrency, ép Lambda xử lý tuần tự có kiểm soát.
+
+	- Rủi ro 3:  yfinance API bị lỗi kết nối/chặn request:
+		- Chiến lược giảm thiểu: Cấu hình Lambda tự động Retry 2 lần. Nếu vẫn sập, đẩy message lỗi sang Dead-Letter Queue (DLQ) và kích hoạt CloudWatch Alarm bắn alert về Telegram báo cho Trader xử lý thủ công
+
+### 8. Kết quả kỳ vọng
+
+	- Cải tiến kỹ thuật: Xây dựng thành công một hệ thống xử lý bất đồng bộ (Asynchronous Workflow) có khả năng chống chịu lỗi cao. Áp dụng chuẩn kiến trúc bảo mật Zero-Trust từ Cognito, HTTPS mã hóa ACM cho đến quản lý Secrets bằng SSM Parameter Store.
+
+	- Giá trị thực tiễn: Tạo ra một công cụ AI trợ lý đắc lực giải thích được lý do tại sao đưa ra hành động (Explainable AI nhờ Reasoning Trace) , giúp các Trader vừa tối ưu hóa hiệu suất đầu tư, vừa bảo đảm an toàn thông tin tuyệt đối trước khi gửi phương án cho khách hàng.
+
+### 9. Mô hình kiến trúc hệ thống
+
+![Stock Alerts System Architecture](../../images/2-Proposal/stock_alerts_architecture.png)

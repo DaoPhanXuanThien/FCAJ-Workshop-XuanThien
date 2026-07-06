@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bản Ghi Thay Đổi & Nâng Cấp - AWS Worklog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-card: rgba(30, 41, 59, 0.7);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --accent-color: #3b82f6;
+      --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      --success-color: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 24px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Cards Styling */
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59, 130, 246, 0.3);
+      box-shadow: 0 12px 20px -10px rgba(59, 130, 246, 0.15);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--accent-gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: #3b82f6;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-add {
+      background-color: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+    }
+
+    .badge-mod {
+      background-color: rgba(245, 158, 11, 0.15);
+      color: #f59e0b;
+    }
+
+    .badge-del {
+      background-color: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+    }
+
+    /* Change Log List */
+    .changelog-list {
+      list-style: none;
+    }
+
+    .changelog-item {
+      display: flex;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .changelog-item:last-child {
+      border-bottom: none;
+    }
+
+    .changelog-badge {
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .changelog-content h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .changelog-content p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .file-path {
+      font-family: monospace;
+      font-size: 0.8rem;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 0.4rem;
+      color: #a5f3fc;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AWS Worklog Updates</h1>
+      <p class="subtitle">Bản ghi chép chi tiết các thay đổi & nâng cấp hệ thống</p>
+    </header>
+
+    <main>
+      <div class="section-title">Nội Dung Mới Vừa Cập Nhật</div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">📖 Cập Nhật Đầy Đủ Worklog Tuần 1-6</div>
+          <div class="card-desc">Đã cập nhật chi tiết mục tiêu, công việc hàng ngày và kết quả đạt được của 6 tuần học AWS cho cả hai giao diện ngôn ngữ.</div>
+          <div class="badge-container">
+            <span class="badge badge-mod">Đã sửa đổi</span>
+            <span class="badge badge-add">Thêm nội dung</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🖼️ Ảnh Đại Diện Sinh Viên Mới</div>
+          <div class="card-desc">Đã thay thế ảnh đại diện mẫu (avatar placeholder) bằng ảnh chân dung thực tế của bạn trên trang giới thiệu.</div>
+          <div class="badge-container">
+            <span class="badge badge-mod">Cập nhật ảnh</span>
+            <span class="badge badge-add">Mới</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">⚡ Sắp Xếp Thứ Tự Sidebar Chuẩn Chỉ</div>
+          <div class="card-desc">Khắc phục triệt để lỗi sidebar sắp xếp lộn xộn bằng cách cập nhật trọng số (weight) trong front matter từ Tuần 1 đến Tuần 12.</div>
+          <div class="badge-container">
+            <span class="badge badge-mod">Tối ưu sidebar</span>
+            <span class="badge badge-mod">Trọng số (Weight)</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🚀 File Chạy Nhanh run.bat</div>
+          <div class="card-desc">Thêm file run.bat giúp kích hoạt Hugo Server chỉ với một cú đúp chuột, tự động hỗ trợ IPv4, IPv6 mà không cần setup PATH.</div>
+          <div class="badge-container">
+            <span class="badge badge-add">Mới</span>
+            <span class="badge badge-add">Tự động</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">Danh Sách Tệp Thay Đổi Chi Tiết</div>
+      <div class="card" style="padding: 0; background: var(--bg-card);">
+        <ul class="changelog-list">
+          
+          <li class="changelog-item">
+            <div class="changelog-badge"><span class="badge badge-mod">Modify</span></div>
+            <div class="changelog-content">
+              <h4>Cấu hình thứ tự sidebar các tuần (Tuần 7 đến 12)</h4>
+              <p>Chỉnh sửa thuộc tính <code>weight</code> trong tệp Markdown để sidebar sắp xếp tuyến tính 1 -> 12.</p>
+              <span class="file-path">content/1-Worklog/1.7-Week7/... đến 1.12-Week12/ (cả bản EN & VI)</span>
+            </div>
+          </li>
+
+          <li class="changelog-item">
+            <div class="changelog-badge"><span class="badge badge-mod">Modify</span></div>
+            <div class="changelog-content">
+              <h4>Nội dung học tập chi tiết các tuần 1 đến 6</h4>
+              <p>Thay đổi nội dung học từ EC2, VPC, Storage, DB, Serverless đến SQS & CloudWatch.</p>
+              <span class="file-path">content/1-Worklog/1.1-Week1/... đến 1.6-Week6/ (cả bản EN & VI)</span>
+            </div>
+          </li>
+
+          <li class="changelog-item">
+            <div class="changelog-badge"><span class="badge badge-mod">Modify</span></div>
+            <div class="changelog-content">
+              <h4>Cập nhật ảnh đại diện của bạn</h4>
+              <p>Thay ảnh mẫu bằng ảnh chân dung thực tế.</p>
+              <span class="file-path">static/images/avatar.png</span>
+            </div>
+          </li>
+
+          <li class="changelog-item">
+            <div class="changelog-badge"><span class="badge badge-add">NEW</span></div>
+            <div class="changelog-content">
+              <h4>Tạo tệp chạy nhanh Hugo Server</h4>
+              <p>Tệp Batch hỗ trợ click đúp chuột chạy trực tiếp server trên Windows.</p>
+              <span class="file-path">run.bat</span>
+            </div>
+          </li>
+
+          <li class="changelog-item">
+            <div class="changelog-badge"><span class="badge badge-del">DELETE</span></div>
+            <div class="changelog-content">
+              <h4>Dọn dẹp tệp rác hệ thống</h4>
+              <p>Xóa bỏ thư mục build cũ và các file lock tạm.</p>
+              <span class="file-path">public/, .DS_Store, .hugo_build.lock</span>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2026 AWS Worklog Manager. Được hoàn thiện bởi Antigravity.</p>
+    </footer>
+  </div>
+</body>
+</html>

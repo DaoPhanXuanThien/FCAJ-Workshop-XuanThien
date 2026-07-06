@@ -1,115 +1,90 @@
 ---
 title: "Proposal"
-date: 2024-01-01
+date: 2026-07-06
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# PROJECT PROPOSAL: STOCK PRICE ANALYSIS AND ALERT SYSTEM (STOCK ALERTS SYSTEM)
+## A Comprehensive AWS Serverless & AI Agent Solution for Professional Traders
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+The project aims to build an automated real-time stock price analysis, reasoning, and alert system based on AWS Serverless Architecture combined with Claude artificial intelligence through Amazon Bedrock. The system supports traders in monitoring the market, automatically calculating technical indicators, and generating in-depth analytical reports to send to end customers. By separating deterministic quantitative data processing from AI language reasoning, the system maintains high calculation accuracy, minimizes AI hallucination, and operates with a human-in-the-loop review mechanism before any strategy is published.
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+Current problem: Traders often face a massive volume of market information, including technical charts and macroeconomic news that changes minute by minute. Manual analysis takes significant time, can cause missed opportunities, and may lead to emotion-driven decisions. In addition, using general AI models for financial analysis can be risky because they may calculate indicators such as RSI or MACD incorrectly, or generate unsupported news and assumptions.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+Solution: The system solves this by separating responsibilities. Python code running on AWS Lambda performs accurate technical indicator calculations, then prepares trusted context through a RAG-style flow so the AI Agent, Claude Opus or Sonnet, can reason and produce higher-quality recommendations. A secured dashboard enables traders to quickly edit, review, approve, and send strategies to customers through email or SNS.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+Benefits and return on investment (ROI): The solution can optimize up to 90% of the trader's data aggregation time. AWS infrastructure operating cost is designed to approach zero for the student project by maximizing AWS Free Tier usage.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+The system is designed as a fully serverless, pay-as-you-go architecture and is divided into four independent DevOps-friendly layers.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+Frontend and Dashboard Layer: Built with JavaScript and deployed to Amazon S3 Static Hosting with Amazon CloudFront CDN for high-speed content delivery without maintaining a web server.
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+Ingestion and Math Engine Layer: Uses separate AWS Lambda functions for raw data ingestion and numerical data processing. Historical data is retrieved from yfinance, while real-time data comes from the Yahoo Finance API.
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+AI Analytics Engine Layer: Claude on Amazon Bedrock acts as the reasoning brain that explains the model and provides explainable AI analysis.
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+Database and Storage Layer: Amazon S3 stores raw JSON files, while Amazon DynamoDB stores structured time-series analysis data.
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+Closed-loop end-to-end workflow:
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+1. Trigger and ingest data: Amazon EventBridge triggers the Ingestion Lambda according to stock market hours to fetch data from Yahoo Finance and push it to Amazon S3.
+
+2. Quantitative calculation: S3 Event Notification sends messages to the SQS Main Queue to throttle concurrency and prevent Lambda overload. Processing Lambda reads the messages and uses the pandas-ta library to calculate RSI, MACD, and other technical indicators accurately.
+
+3. AI analysis and GenAI reasoning: The system calls Claude through Amazon Bedrock with a dynamic prompt. Claude is constrained to return strict JSON containing recommendations, confidence score, and logical reasoning trace. Signals with confidence scores below 75 are automatically filtered out.
+
+4. Time-series storage: Results are written to DynamoDB and encrypted with AWS KMS. The table uses a composite primary key design, with PK as TICKER#<Stock_Code> and SK as TIMESTAMP#<YYYYMMDD-HHMMSS>, allowing recent 30-day data queries in under 10 ms.
+
+5. Alerts and dashboard delivery: Lambda calls the Telegram Bot API directly through sendMessage to alert traders. Traders sign in to the dashboard through Amazon Cognito, receive a JWT token, and access services through Amazon API Gateway with built-in rate limiting to reduce DDoS risk.
+
+6. Final human review: Traders compare candlestick charts from TradingView Lightweight Charts with AI reasoning, then approve the strategy before sending it to customers.
 
 ### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+- May: Study AWS and learn about the services that will be used in the project.
+- June: Design and adjust the architecture, then divide responsibilities among team members.
+- July: Implement the project, test the system, and fix issues.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+- Amazon EventBridge: approximately 8,800 trigger events, free, 0.00 USD.
+- AWS Lambda: approximately 17,600 executions for ingestion and processing, 0.00 USD per 1 million requests under Free Tier.
+- Amazon SQS: approximately 17,600 messages for Main Queue and DLQ, 0.00 USD per 1 million requests under Free Tier.
+- Amazon S3: raw JSON storage of approximately 200 MB per month, 0.00 USD under 5 GB.
+- Amazon DynamoDB: approximately 2,200 analysis data records, 0.00 USD under 25 GB.
+- Amazon API Gateway: approximately 5,000 dashboard calls, 0.00 USD per 1 million requests under Free Tier.
+- Amazon Cognito: administrator or trader accounts, 0.00 USD under 50,000 monthly active users.
+- AWS SSM Parameter Store: secure API key storage, 0.00 USD for Standard parameters.
+- Amazon CloudWatch: metrics and logs, 0.00 USD under 5 GB.
+- Amazon Bedrock with Claude 3.5 Sonnet: approximately 9.90 USD for 2,200 analysis requests.
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+Fixed AWS infrastructure budget: 0 VND.
 
-Total: $0.7/month, $8.40/12 months
+Development and test phase using Claude 3.5 Sonnet: input is approximately 1,500 tokens per request for technical analysis data and macro news text. With 2,200 requests, the total input volume is about 3.3 million tokens. At 3.00 USD per 1 million tokens, the estimated input cost is 9.90 USD, and the total development cost with Sonnet is approximately 19.80 USD per month.
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+Variable AI Agent budget: approximately 19.80 USD per month, generated only when development or real testing runs are executed.
 
 ### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+Risk 1: AI cost threshold overrun due to Bedrock token bursts. If the market is highly volatile, the number of symbols reaching a confidence score of 75 or higher may increase sharply, causing frequent Claude calls and higher token cost.
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+Mitigation strategy: Add a hard quota and rate limit for the maximum number of Bedrock calls per day directly in the Lambda code. Use Claude 3.5 Sonnet as the main model to control cost.
 
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+Risk 2: System congestion when many files arrive in S3 at the same time.
+
+Mitigation strategy: The V3.1 architecture resolves this by inserting SQS Main Queue as an intermediate buffer to throttle concurrency and force Lambda to process messages sequentially in a controlled way.
+
+Risk 3: yfinance API connection failure or request blocking.
+
+Mitigation strategy: Configure Lambda to retry automatically twice. If the job still fails, send the failed message to the Dead-Letter Queue and trigger a CloudWatch Alarm to notify the trader through Telegram for manual handling.
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+Technical improvements: Successfully build a fault-tolerant asynchronous workflow. Apply Zero Trust security architecture practices through Cognito, HTTPS encryption with ACM, and secret management through SSM Parameter Store.
+
+Practical value: Deliver an AI assistant tool that explains the reason behind each action through an explainable reasoning trace. This helps traders improve investment productivity while maintaining strict information safety before sending strategies to customers.
+
+### 9. System Architecture Model
+
+![Stock Alerts System Architecture](../images/2-Proposal/stock_alerts_architecture.png)

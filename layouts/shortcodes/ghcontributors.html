@@ -19,7 +19,7 @@
   }
 </style>
 <div class="ghContributors">
-  {{ $url := .Get 0 }} {{ range getJSON $url }}
+  {{ $url := .Get 0 }}{{ $data := slice }}{{ with resources.GetRemote $url }}{{ with .Err }}{{ warnf "%s" . }}{{ else }}{{ $data = unmarshal .Content }}{{ end }}{{ end }}{{ range $data }}
   <div>
     <img
       src="{{.avatar_url}}"

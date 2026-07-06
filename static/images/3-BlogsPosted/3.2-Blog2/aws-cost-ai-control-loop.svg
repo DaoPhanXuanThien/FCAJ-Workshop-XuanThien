@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="560" viewBox="0 0 1180 560" role="img" aria-labelledby="title desc">
+  <title id="title">AWS Cost and AI control loop</title>
+  <desc id="desc">Diagram showing EC2, storage, logs, and AI services creating cost drivers, then controlled through budgets, alarms, Cost Explorer, sandbox limits, and automation.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .title{font:700 28px Arial,sans-serif;fill:#172554}
+      .label{font:700 18px Arial,sans-serif;fill:#111827}
+      .text{font:15px Arial,sans-serif;fill:#334155}
+      .small{font:13px Arial,sans-serif;fill:#64748b}
+      .cost{fill:#fff7ed;stroke:#fb923c;stroke-width:2;rx:12}
+      .ai{fill:#f5f3ff;stroke:#8b5cf6;stroke-width:2;rx:12}
+      .tool{fill:#eff6ff;stroke:#3b82f6;stroke-width:2;rx:12}
+      .safe{fill:#ecfdf5;stroke:#10b981;stroke-width:2;rx:12}
+      .arrow{stroke:#2563eb;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1180" height="560" fill="#ffffff"/>
+  <text x="44" y="54" class="title">AWS Cost &amp; AI: Cost-Aware Cloud Operation</text>
+
+  <rect x="56" y="105" width="230" height="118" class="cost"/>
+  <text x="82" y="142" class="label">Compute Cost</text>
+  <text x="82" y="172" class="text">EC2 running 24/7</text>
+  <text x="82" y="198" class="small">Free Tier has limits</text>
+
+  <rect x="56" y="255" width="230" height="118" class="cost"/>
+  <text x="82" y="292" class="label">Storage &amp; Logs</text>
+  <text x="82" y="322" class="text">EBS volume grows</text>
+  <text x="82" y="348" class="text">Logs increase by request</text>
+
+  <rect x="56" y="405" width="230" height="118" class="ai"/>
+  <text x="82" y="442" class="label">AI Services</text>
+  <text x="82" y="472" class="text">Bedrock / SageMaker</text>
+  <text x="82" y="498" class="small">Billed by request or token</text>
+
+  <rect x="442" y="110" width="280" height="130" class="tool"/>
+  <text x="472" y="148" class="label">Cost Monitoring</text>
+  <text x="472" y="180" class="text">AWS Budgets</text>
+  <text x="472" y="206" class="text">Billing Alarm</text>
+  <text x="472" y="232" class="text">Cost Explorer</text>
+
+  <rect x="442" y="320" width="280" height="130" class="tool"/>
+  <text x="472" y="358" class="label">AI Sandbox</text>
+  <text x="472" y="390" class="text">Limit requests</text>
+  <text x="472" y="416" class="text">Separate test environment</text>
+  <text x="472" y="442" class="text">Avoid production flow</text>
+
+  <rect x="875" y="110" width="250" height="130" class="safe"/>
+  <text x="904" y="148" class="label">Automation</text>
+  <text x="904" y="180" class="text">Stop EC2 after testing</text>
+  <text x="904" y="206" class="text">Clean unused resources</text>
+  <text x="904" y="232" class="text">Lifecycle control</text>
+
+  <rect x="875" y="320" width="250" height="130" class="safe"/>
+  <text x="904" y="358" class="label">Cost-Aware Design</text>
+  <text x="904" y="390" class="text">Know each pricing model</text>
+  <text x="904" y="416" class="text">Set quotas early</text>
+  <text x="904" y="442" class="text">Monitor continuously</text>
+
+  <path d="M286 164 H432" class="arrow"/>
+  <path d="M286 314 C350 314 360 185 432 185" class="arrow"/>
+  <path d="M286 464 C350 464 360 385 432 385" class="arrow"/>
+  <path d="M722 175 H865" class="arrow"/>
+  <path d="M722 385 H865" class="arrow"/>
+  <path d="M1000 252 V310" class="arrow"/>
+</svg>
