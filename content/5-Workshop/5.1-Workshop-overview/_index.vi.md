@@ -1,19 +1,33 @@
 ---
-title : "Giới thiệu"
-date : 2024-01-01 
-weight : 1
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Giới thiệu"
+date: 2026-07-09
+weight: 1
+chapter: false
+pre: " <b> 5.1. </b> "
 ---
 
-#### Giới thiệu về VPC Endpoint
+#### Tổng quan về hệ thống
+Hệ thống được xây dựng nhằm hỗ trợ quá trình phân tích cổ phiếu bằng kiến trúc AWS Serverless. Dữ liệu giá cổ phiếu được lấy từ Yahoo Finance, sau đó được xử lý qua các dịch vụ như Lambda, S3, SQS, Amazon Bedrock và DynamoDB.
 
-+ Điểm cuối VPC (endpoint) là thiết bị ảo. Chúng là các thành phần VPC có thể mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.
-+ Tài nguyên điện toán đang chạy trong VPC có thể truy cập Amazon S3 bằng cách sử dụng điểm cuối Gateway. Interface Endpoint  PrivateLink có thể được sử dụng bởi tài nguyên chạy trong VPC hoặc tại TTDL.
+Hệ thống sẽ tự động thu thập dữ liệu thị trường, tính toán các chỉ báo kỹ thuật như RSI, MACD, MA và Volume, sau đó gửi các chỉ số đã tính cho Amazon Bedrock để tạo ra phân tích và khuyến nghị đầu tư. Kết quả phân tích sẽ được hiển thị trên Dashboard để trader xem xét, phê duyệt hoặc từ chối trước khi gửi thông báo đến khách hàng qua email.
 
-#### Tổng quan về workshop
-Trong workshop này, bạn sẽ sử dụng hai VPC.
-+ **"VPC Cloud"** dành cho các tài nguyên cloud như Gateway endpoint và EC2 instance để kiểm tra.
-+ **"VPC On-Prem"** mô phỏng môi trường truyền thống như nhà máy hoặc trung tâm dữ liệu của công ty. Một EC2 Instance chạy phần mềm StrongSwan VPN đã được triển khai trong "VPC On-prem" và được cấu hình tự động để thiết lập đường hầm VPN Site-to-Site với AWS Transit Gateway. VPN này mô phỏng kết nối từ một vị trí tại TTDL (on-prem) với AWS cloud. Để giảm thiểu chi phí, chỉ một phiên bản VPN được cung cấp để hỗ trợ workshop này. Khi lập kế hoạch kết nối VPN cho production workloads của bạn, AWS khuyên bạn nên sử dụng nhiều thiết bị VPN để có tính sẵn sàng cao.
+#### Khách hàng là ai?
+Khách hàng của hệ thống là những người quan tâm đến việc theo dõi và đầu tư cổ phiếu, bao gồm:
+*   Nhà đầu tư cá nhân muốn nhận gợi ý phân tích cổ phiếu.
+*   Người mới tham gia thị trường cần công cụ hỗ trợ đọc hiểu tín hiệu kỹ thuật.
+*   Trader hoặc nhân viên tư vấn tài chính cần dashboard để xem xét khuyến nghị trước khi gửi cho khách hàng.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+Trong hệ thống này, khách hàng cuối không trực tiếp nhận khuyến nghị từ AI ngay lập tức. Thay vào đó, kết quả phân tích sẽ được trader kiểm tra trước nhằm đảm bảo tính an toàn và giảm rủi ro khi đưa ra thông tin đầu tư.
+
+#### Hệ thống dùng để giải quyết vấn đề gì?
+Hệ thống giải quyết vấn đề phân tích cổ phiếu thủ công tốn thời gian và dễ bỏ sót tín hiệu kỹ thuật. Khi số lượng mã cổ phiếu tăng lên, trader khó có thể theo dõi toàn bộ dữ liệu giá, khối lượng và các chỉ báo kỹ thuật một cách liên tục.
+
+Hệ thống giúp tự động hóa các bước chính:
+*   Thu thập dữ liệu cổ phiếu từ Yahoo Finance.
+*   Lưu trữ dữ liệu thô để phục vụ kiểm tra và xử lý lại.
+*   Tính toán các chỉ báo kỹ thuật ở backend.
+*   Dùng AI để hỗ trợ phân tích các chỉ số đã tính.
+*   Lưu kết quả phân tích vào DynamoDB.
+*   Cho phép trader phê duyệt trước khi gửi email cho khách hàng.
+
+Nhờ đó, hệ thống giúp rút ngắn thời gian phân tích, tăng khả năng theo dõi nhiều mã cổ phiếu cùng lúc và đảm bảo khuyến nghị cuối cùng vẫn có sự kiểm soát của con người.

@@ -1,33 +1,23 @@
 ---
-title: "Workshop"
-date: 2024-01-01
+title: "Báo cáo Dự án"
+date: 2026-07-09
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# Báo cáo Dự án: Hệ thống Phân tích và Cảnh báo Giá Cổ phiếu
 
+Phần này tóm tắt quá trình nghiên cứu, xây dựng và triển khai dự án tốt nghiệp **Stock Alerts System** sử dụng kiến trúc AWS Serverless và Trí tuệ nhân tạo (Amazon Bedrock). Nội dung được chia thành các phần chính dưới đây:
 
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+### 1. [Tổng quan về dự án](5.1-Workshop-overview/)
+Giới thiệu mục tiêu dự án, đối tượng khách hàng hướng tới và bài toán kinh doanh mà hệ thống giải quyết nhằm hỗ trợ các Trader tự động hóa quy trình phân tích thị trường.
 
-#### Tổng quan
+### 2. [Các bước chuẩn bị & Triển khai](5.2-Prerequiste/)
+Hướng dẫn chi tiết quy trình thiết lập tài khoản và triển khai thực tế các dịch vụ AWS trong hệ thống (S3, SQS, Lambda, KMS, DynamoDB, CloudFront, WAF, Cognito, API Gateway, Bedrock).
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+### 3. [Lý do lựa chọn kiến trúc](5.3-Why_Choose_Services/)
+Phân tích các tiêu chí lựa chọn giải pháp (tối ưu chi phí, Serverless, Managed Service, khả năng mở rộng) và đề xuất các định hướng cải tiến hệ thống trong tương lai.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
-
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
-
-#### Nội dung
-
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+### 4. [Kiểm thử & Xác minh kết quả](5.4-Test/)
+Ghi nhận quá trình chạy thử nghiệm hệ thống thực tế từ giao diện người dùng, theo dõi luồng xử lý bất đồng bộ qua các dịch vụ, kiểm tra log CloudWatch và cách xử lý lỗi hạn mức quota của Amazon Bedrock.

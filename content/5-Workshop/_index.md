@@ -1,31 +1,23 @@
 ---
-title: "Workshop"
-date: 2024-01-01
+title: "Project Report"
+date: 2026-07-09
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Project Report: Stock Alerts System
 
-#### Overview
+This section summarizes the research, development, and deployment of the **Stock Alerts System** graduation project using AWS Serverless architecture and Generative AI (Amazon Bedrock). The content is organized into the following key parts:
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+### 1. [Project Overview](5.1-Workshop-overview/)
+Introduces the project objectives, target clients, and the business problems solved by the system to assist traders in automating market analysis.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+### 2. [Prerequisites & Infrastructure Deployment](5.2-Prerequiste/)
+Provides a step-by-step guide to configuring and deploying AWS services within the architecture (S3, SQS, Lambda, KMS, DynamoDB, CloudFront, WAF, Cognito, API Gateway, Bedrock).
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+### 3. [Why Choose These Services?](5.3-Why_Choose_Services/)
+Analyzes the key architectural decisions (cost optimization, Serverless, Managed Services, scalability) and outlines future enhancements.
 
-#### Content
-
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+### 4. [System Testing & Verification](5.4-Test/)
+Documents real-world testing from the UI, traces the asynchronous backend workflow, details CloudWatch logging, and covers troubleshooting Amazon Bedrock daily token limit errors.

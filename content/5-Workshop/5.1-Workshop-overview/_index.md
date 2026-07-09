@@ -1,18 +1,33 @@
 ---
-title : "Introduction"
-date : 2024-01-01 
-weight : 1 
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Introduction"
+date: 2026-07-09
+weight: 1
+chapter: false
+pre: " <b> 5.1. </b> "
 ---
 
-#### VPC endpoints
-+ **VPC endpoints** are virtual devices. They are horizontally scaled, redundant, and highly available VPC components. They allow communication between your compute resources and AWS services without imposing availability risks.
-+ Compute resources running in VPC can access  **Amazon S3**  using a Gateway endpoint. PrivateLink interface endpoints can be used by compute resources running in VPC or on-premises.
+#### System Overview
+The system is built to support the stock analysis process using AWS Serverless architecture. Stock price data is retrieved from Yahoo Finance and then processed through services such as Lambda, S3, SQS, Amazon Bedrock, and DynamoDB.
 
-#### Workshop overview
-In this workshop, you will use two VPCs. 
-+ **"VPC Cloud"** is for cloud resources such as a  **Gateway endpoint** and an EC2 instance to test with. 
-+ **"VPC On-Prem"** simulates an on-premises environment such as a factory or corporate datacenter. An EC2 instance running strongSwan VPN software has been deployed in "VPC On-prem" and automatically configured to establish a Site-to-Site VPN tunnel with AWS Transit Gateway. This VPN simulates connectivity from an on-premises location to the AWS cloud. To minimize costs, only one VPN instance is provisioned to support this workshop. When planning VPN connectivity for your production workloads, AWS recommends using multiple VPN devices for high availability.
+The system automatically collects market data, calculates technical indicators such as RSI, MACD, MA, and Volume, and then sends the calculated metrics to Amazon Bedrock to generate analysis and investment recommendations. The analysis results are displayed on the Dashboard for traders to review, approve, or reject before sending email notifications to clients.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+#### Who are the clients?
+The clients of the system are those interested in tracking and investing in stocks, including:
+*   Individual investors who want to receive stock analysis suggestions.
+*   Beginners in the market who need a tool to help understand technical signals.
+*   Traders or financial advisors who need a dashboard to review recommendations before sending them to clients.
+
+In this system, end-users do not receive direct recommendations from the AI immediately. Instead, the analysis results are reviewed by a trader first to ensure safety and mitigate investment information risks.
+
+#### What problem does the system solve?
+The system solves the problem of manual stock analysis, which is time-consuming and prone to missing technical signals. As the number of stocks increases, it becomes difficult for traders to continuously monitor price data, volume, and technical indicators.
+
+The system helps automate key steps:
+*   Collecting stock data from Yahoo Finance.
+*   Storing raw data for audit and reprocessing.
+*   Calculating technical indicators at the backend.
+*   Using AI to assist in analyzing the calculated metrics.
+*   Saving analysis results into DynamoDB.
+*   Allowing traders to approve recommendations before emailing clients.
+
+Consequently, the system shortens analysis time, increases the capacity to track multiple stocks simultaneously, and ensures that the final recommendation remains under human control.
