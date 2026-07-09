@@ -10,7 +10,7 @@ pre: " <b> 6. </b> "
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
 {{% /notice %}}
 
-During my internship at **Amazon Web Services Viet Nam Company** from **17/04/2026** to **10/07/2026**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
+During my internship at **Amazon Web Services Viet Nam Co., Ltd.** from **17/04/2026** to **10/07/2026**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
 I participated in **building the Stock Alerts System project using AWS Serverless architecture and Generative AI (Claude - Amazon Bedrock)**, through which I improved my skills in **backend programming, serverless cloud architecture design and deployment, DynamoDB database management, integrating AI models via Amazon Bedrock, teamwork, reporting, and communication**.  
 
 In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
