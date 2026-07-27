@@ -14,7 +14,7 @@ pre: " <b> 1.10. </b> "
 ### Tasks carried out this week:
 | Week | Date Range | Task | Completion Status | Reference Material |
 | --- | ---------- | ---- | ----------------- | ------------------ |
-| 10 | 22/06/2026 - 05/07/2026 | Implemented project source code: used Lambda together with EventBridge to crawl data and store it in S3, then integrated AWS Bedrock and SQS for data processing. | Completed during the week | Internship progress tracking form |
+| 10 | 22/06/2026 - 05/07/2026 | Implemented project source code: used Lambda together with EventBridge to crawl data and store it in S3, then integrated AWS Bedrock and SQS for data processing.<br>Additional details: built the Ingestion Lambda to fetch stock data and store JSON in S3, designed SQS messages, implemented the Processing Lambda to calculate RSI/MACD/MA/Volume, prepared the Bedrock prompt, and stored analysis results in DynamoDB. | Completed during the week | Internship progress tracking form |
 
 ### Week 10 Achievements:
 

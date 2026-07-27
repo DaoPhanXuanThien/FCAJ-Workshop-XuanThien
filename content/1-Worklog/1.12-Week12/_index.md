@@ -14,7 +14,7 @@ pre: " <b> 1.12. </b> "
 
 | Week | Timeframe | Content | Completion Status | Document Source |
 | ---- | --------- | ------- | ----------------- | --------------- |
-| 12 | 2026-07-09 - 2026-07-10 | Submit the internship report, project source code, and GitHub link to the **hcm-portal.aws.fcaj** portal. | Completed within the week | Internship progress tracking sheet |
+| 12 | 2026-07-09 - 2026-07-10 | Submit the internship report, project source code, and GitHub link to the **hcm-portal.aws.fcaj** portal.<br>Additional details: reviewed bilingual Hugo content, checked menus/links/evidence images, confirmed the GitHub repository was updated, prepared submission information, and saved completion evidence from the portal. | Completed within the week | Internship progress tracking sheet |
 
 ### Week 12 Achievements:
 

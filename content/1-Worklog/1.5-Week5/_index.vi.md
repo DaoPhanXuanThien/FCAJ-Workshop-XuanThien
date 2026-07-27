@@ -14,7 +14,7 @@ pre: " <b> 1.5. </b> "
 ### Các công việc triển khai trong tuần:
 | Tuần | Thời gian | Nội dung | Trạng thái hoàn thành | Nguồn tài liệu |
 | --- | --------- | -------- | --------------------- | -------------- |
-| 5 | 18/05/2026 - 24/05/2026 | Tìm hiểu về Docker, đóng gói ứng dụng và triển khai lên Amazon EC2. Tham gia sự kiện "FCAJ Community Day" để giao lưu học hỏi công nghệ mới. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
+| 5 | 18/05/2026 - 24/05/2026 | Tìm hiểu về Docker, đóng gói ứng dụng và triển khai lên Amazon EC2. Tham gia sự kiện "FCAJ Community Day" để giao lưu học hỏi công nghệ mới.<br>Chi tiết bổ sung: viết Dockerfile mẫu, build và chạy thử container ở local, chuẩn bị security group cho EC2, kiểm tra log khi deploy ứng dụng và tổng hợp các bài học từ sự kiện để liên hệ với định hướng project. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
 
 ### Kết quả đạt được tuần 5:
 

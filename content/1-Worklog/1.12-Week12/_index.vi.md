@@ -14,7 +14,7 @@ pre: " <b> 1.12. </b> "
 
 | Tuần | Thời gian | Nội dung | Trạng thái hoàn thành | Nguồn tài liệu |
 | --- | --------- | -------- | --------------------- | -------------- |
-| 12 | 09/07/2026 - 10/07/2026 | Nộp báo cáo thực tập, mã nguồn dự án (project) và link GitHub lên hệ thống **hcm-portal.aws.fcaj**. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
+| 12 | 09/07/2026 - 10/07/2026 | Nộp báo cáo thực tập, mã nguồn dự án (project) và link GitHub lên hệ thống **hcm-portal.aws.fcaj**.<br>Chi tiết bổ sung: rà soát lại nội dung song ngữ trên Hugo, kiểm tra menu/link/ảnh minh chứng, xác nhận repository GitHub đã cập nhật, chuẩn bị thông tin nộp bài và lưu lại minh chứng hoàn thành trên hệ thống. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
 
 ### Kết quả đạt được tuần 12:
 

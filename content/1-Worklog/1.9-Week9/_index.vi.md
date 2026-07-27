@@ -14,7 +14,7 @@ pre: " <b> 1.9. </b> "
 ### Các công việc triển khai trong tuần:
 | Tuần | Thời gian | Nội dung | Trạng thái hoàn thành | Nguồn tài liệu |
 | --- | --------- | -------- | --------------------- | -------------- |
-| 9 | 15/06/2026 - 21/06/2026 | Mô tả dự án: Tổng hợp và viết tài liệu mô tả chi tiết bài toán kinh doanh, quy trình thu thập dữ liệu và xác định các tiêu chí kỹ thuật đầu ra cho hệ thống dữ liệu. Hoàn thiện sơ đồ luồng dữ liệu và tìm hiểu cách tích hợp AI thông qua Amazon SageMaker. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
+| 9 | 15/06/2026 - 21/06/2026 | Mô tả dự án: Tổng hợp và viết tài liệu mô tả chi tiết bài toán kinh doanh, quy trình thu thập dữ liệu và xác định các tiêu chí kỹ thuật đầu ra cho hệ thống dữ liệu. Hoàn thiện sơ đồ luồng dữ liệu và tìm hiểu cách tích hợp AI thông qua Amazon SageMaker.<br>Chi tiết bổ sung: xác định dữ liệu đầu vào từ Yahoo Finance, mô tả output gồm chỉ báo kỹ thuật, khuyến nghị và điểm tin cậy; so sánh hướng dùng SageMaker và Bedrock để chọn cách tích hợp AI phù hợp với phạm vi serverless của project. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
 
 ### Kết quả đạt được tuần 9:
 

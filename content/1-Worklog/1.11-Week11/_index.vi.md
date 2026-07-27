@@ -14,7 +14,7 @@ pre: " <b> 1.11. </b> "
 ### Các công việc triển khai trong tuần:
 | Tuần | Thời gian | Nội dung | Trạng thái hoàn thành | Nguồn tài liệu |
 | --- | --------- | -------- | --------------------- | -------------- |
-| 11 | 05/07/2026 - 10/07/2026 | Tối ưu hóa mã nguồn, kiểm thử toàn diện hệ thống và hoàn thiện tài liệu báo cáo. Báo cáo về Project. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
+| 11 | 05/07/2026 - 10/07/2026 | Tối ưu hóa mã nguồn, kiểm thử toàn diện hệ thống và hoàn thiện tài liệu báo cáo. Báo cáo về Project.<br>Chi tiết bổ sung: kiểm thử luồng đăng nhập Cognito, chạy phân tích mã cổ phiếu từ Dashboard, kiểm tra SQS/DynamoDB/CloudWatch Logs, ghi nhận lỗi quota của Bedrock và cập nhật ảnh minh chứng cùng nội dung giải thích vào phần Workshop. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
 
 ### Kết quả đạt được tuần 11:
 

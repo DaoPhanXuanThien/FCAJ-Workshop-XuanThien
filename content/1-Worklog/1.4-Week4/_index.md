@@ -14,7 +14,7 @@ pre: " <b> 1.4. </b> "
 ### Tasks carried out this week:
 | Week | Date Range | Task | Completion Status | Reference Material |
 | --- | ---------- | ---- | ----------------- | ------------------ |
-| 4 | 11/05/2026 - 17/05/2026 | Configured an automated backup plan with AWS Backup. Installed AWS CLI on the personal machine to manage resources and studied the AWS Transit Gateway service. | Completed during the week | Internship progress tracking form |
+| 4 | 11/05/2026 - 17/05/2026 | Configured an automated backup plan with AWS Backup. Installed AWS CLI on the personal machine to manage resources and studied the AWS Transit Gateway service.<br>Additional details: created a test backup vault and backup plan, verified credentials/region with AWS CLI, documented basic CLI commands, and compared Transit Gateway with VPC Peering for multi-VPC connectivity scenarios. | Completed during the week | Internship progress tracking form |
 
 ### Week 4 Achievements:
 

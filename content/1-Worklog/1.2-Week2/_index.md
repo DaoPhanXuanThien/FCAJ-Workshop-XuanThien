@@ -14,7 +14,7 @@ pre: " <b> 1.2. </b> "
 ### Tasks carried out this week:
 | Week | Date Range | Task | Completion Status | Reference Material |
 | --- | ---------- | ---- | ----------------- | ------------------ |
-| 2 | 24/04/2026 - 03/05/2026 | Studied the materials provided by AWS. Practiced configuring AWS Budgets for cost management and learned about the Amazon VPC virtual network service. | Completed during the week | Internship progress tracking form |
+| 2 | 24/04/2026 - 03/05/2026 | Studied the materials provided by AWS. Practiced configuring AWS Budgets for cost management and learned about the Amazon VPC virtual network service.<br>Additional details: reviewed Region, Availability Zone, Subnet, Route Table, and Internet Gateway concepts; checked budget alert thresholds; and documented how Free Tier billing works to avoid unexpected costs during labs. | Completed during the week | Internship progress tracking form |
 
 ### Week 2 Achievements:
 

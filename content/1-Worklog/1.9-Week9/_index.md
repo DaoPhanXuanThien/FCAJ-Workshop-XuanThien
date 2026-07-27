@@ -14,7 +14,7 @@ pre: " <b> 1.9. </b> "
 ### Tasks carried out this week:
 | Week | Date Range | Task | Completion Status | Reference Material |
 | --- | ---------- | ---- | ----------------- | ------------------ |
-| 9 | 15/06/2026 - 21/06/2026 | Project description: summarized and wrote detailed documentation for the business problem, data collection process, and technical output criteria for the data system. Completed the data flow diagram and learned how to integrate AI through Amazon SageMaker. | Completed during the week | Internship progress tracking form |
+| 9 | 15/06/2026 - 21/06/2026 | Project description: summarized and wrote detailed documentation for the business problem, data collection process, and technical output criteria for the data system. Completed the data flow diagram and learned how to integrate AI through Amazon SageMaker.<br>Additional details: identified Yahoo Finance as the input source, described outputs such as technical indicators, recommendations, and confidence scores, and compared SageMaker with Bedrock to choose an AI integration approach suitable for the project's serverless scope. | Completed during the week | Internship progress tracking form |
 
 ### Week 9 Achievements:
 

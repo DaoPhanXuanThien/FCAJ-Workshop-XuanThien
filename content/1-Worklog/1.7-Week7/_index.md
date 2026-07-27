@@ -14,7 +14,7 @@ pre: " <b> 1.7. </b> "
 ### Tasks carried out this week:
 | Week | Date Range | Task | Completion Status | Reference Material |
 | --- | ---------- | ---- | ----------------- | ------------------ |
-| 7 | 01/06/2026 - 07/06/2026 | Joined Tech Talk sessions that shared practical experience. Studied the AWS WAF firewall service to protect web applications from security vulnerabilities. | Completed during the week | Internship progress tracking form |
+| 7 | 01/06/2026 - 07/06/2026 | Joined Tech Talk sessions that shared practical experience. Studied the AWS WAF firewall service to protect web applications from security vulnerabilities.<br>Additional details: summarized the main Tech Talk takeaways, studied AWS Managed Rules, SQL Injection, XSS, and rate-based rules, and documented how WAF can be placed in front of CloudFront to protect the project frontend. | Completed during the week | Internship progress tracking form |
 
 ### Week 7 Achievements:
 

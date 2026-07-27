@@ -14,7 +14,7 @@ pre: " <b> 1.2. </b> "
 ### Các công việc triển khai trong tuần:
 | Tuần | Thời gian | Nội dung | Trạng thái hoàn thành | Nguồn tài liệu |
 | --- | --------- | -------- | --------------------- | -------------- |
-| 2 | 24/04/2026 - 03/05/2026 | Nghiên cứu tài liệu do AWS cung cấp. Thực hành cấu hình dịch vụ AWS Budgets để quản lý chi phí và tìm hiểu về mạng ảo Amazon VPC. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
+| 2 | 24/04/2026 - 03/05/2026 | Nghiên cứu tài liệu do AWS cung cấp. Thực hành cấu hình dịch vụ AWS Budgets để quản lý chi phí và tìm hiểu về mạng ảo Amazon VPC.<br>Chi tiết bổ sung: đọc lại các khái niệm Region, Availability Zone, Subnet, Route Table và Internet Gateway; kiểm tra ngưỡng cảnh báo ngân sách; ghi chú cách Free Tier tính phí để tránh phát sinh chi phí ngoài kế hoạch khi thực hành. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
 
 ### Kết quả đạt được tuần 2:
 

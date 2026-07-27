@@ -14,7 +14,7 @@ pre: " <b> 1.1. </b> "
 ### Các công việc triển khai trong tuần:
 | Tuần | Thời gian | Nội dung | Trạng thái hoàn thành | Nguồn tài liệu |
 | --- | --------- | -------- | --------------------- | -------------- |
-| 1 | 17/04/2026 - 23/04/2026 | Định hướng & Kết nối: Tham gia Workshop khai mạc chương trình FCAJ; tiếp nhận tư duy "Builder", "Troubleshooter" và các Nguyên tắc lãnh đạo (Leadership Principles) của AWS. Thành lập nhóm dự án. Thiết lập hạ tầng & Bảo mật: Khởi tạo tài khoản AWS Free Tier, kích hoạt bảo mật đa lớp (MFA) và thiết lập cảnh báo ngân sách (AWS Budgets) để quản trị chi phí theo mô hình Pay-as-you-go. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
+| 1 | 17/04/2026 - 23/04/2026 | Định hướng & Kết nối: Tham gia Workshop khai mạc chương trình FCAJ; tiếp nhận tư duy "Builder", "Troubleshooter" và các Nguyên tắc lãnh đạo (Leadership Principles) của AWS. Thành lập nhóm dự án. Thiết lập hạ tầng & Bảo mật: Khởi tạo tài khoản AWS Free Tier, kích hoạt bảo mật đa lớp (MFA) và thiết lập cảnh báo ngân sách (AWS Budgets) để quản trị chi phí theo mô hình Pay-as-you-go.<br>Chi tiết bổ sung: ghi nhận yêu cầu chương trình, thống nhất cách làm việc nhóm, phân chia vai trò ban đầu, kiểm tra email/tài khoản AWS và lưu lại checklist bảo mật tài khoản trước khi bắt đầu các bài thực hành. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
 
 ### Kết quả đạt được tuần 1:
 

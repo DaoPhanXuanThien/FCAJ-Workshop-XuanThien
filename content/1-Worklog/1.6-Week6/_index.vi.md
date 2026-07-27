@@ -14,7 +14,7 @@ pre: " <b> 1.6. </b> "
 ### Các công việc triển khai trong tuần:
 | Tuần | Thời gian | Nội dung | Trạng thái hoàn thành | Nguồn tài liệu |
 | --- | --------- | -------- | --------------------- | -------------- |
-| 6 | 25/05/2026 - 31/05/2026 | Nghiên cứu tiêu chuẩn bảo mật với AWS Security Hub. Viết code AWS Lambda để tự động hóa quy trình bật/tắt máy chủ EC2 giúp tối ưu chi phí. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
+| 6 | 25/05/2026 - 31/05/2026 | Nghiên cứu tiêu chuẩn bảo mật với AWS Security Hub. Viết code AWS Lambda để tự động hóa quy trình bật/tắt máy chủ EC2 giúp tối ưu chi phí.<br>Chi tiết bổ sung: xem các finding mẫu của Security Hub, xác định quyền IAM tối thiểu cho Lambda, thiết kế lịch bật/tắt EC2 bằng EventBridge và ghi nhận cách kiểm tra trạng thái instance sau khi hàm chạy. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
 
 ### Kết quả đạt được tuần 6:
 

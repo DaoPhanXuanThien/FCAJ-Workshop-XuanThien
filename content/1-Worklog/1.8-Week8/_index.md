@@ -14,7 +14,7 @@ pre: " <b> 1.8. </b> "
 ### Tasks carried out this week:
 | Week | Date Range | Task | Completion Status | Reference Material |
 | --- | ---------- | ---- | ----------------- | ------------------ |
-| 8 | 08/06/2026 - 14/06/2026 | Used Draw.io to design the system architecture diagram. Discussed as a team, assigned responsibilities, and brainstormed the final graduation project topic. | Completed during the week | Internship progress tracking form |
+| 8 | 08/06/2026 - 14/06/2026 | Used Draw.io to design the system architecture diagram. Discussed as a team, assigned responsibilities, and brainstormed the final graduation project topic.<br>Additional details: drafted the Stock Alerts System architecture, identified frontend, backend, database, and AI components, assigned AWS service research tasks, prepared the data flow diagram, and agreed on the MVP feature scope. | Completed during the week | Internship progress tracking form |
 
 ### Week 8 Achievements:
 

@@ -14,7 +14,7 @@ pre: " <b> 1.11. </b> "
 ### Tasks carried out this week:
 | Week | Date Range | Task | Completion Status | Reference Material |
 | --- | ---------- | ---- | ----------------- | ------------------ |
-| 11 | 05/07/2026 - 10/07/2026 | Optimized the source code, performed comprehensive system testing, completed the report documentation, and presented the project report. | Completed during the week | Internship progress tracking form |
+| 11 | 05/07/2026 - 10/07/2026 | Optimized the source code, performed comprehensive system testing, completed the report documentation, and presented the project report.<br>Additional details: tested Cognito login, triggered stock analysis from the Dashboard, checked SQS/DynamoDB/CloudWatch Logs, documented the Bedrock quota issue, and updated evidence screenshots with explanations in the Workshop section. | Completed during the week | Internship progress tracking form |
 
 ### Week 11 Achievements:
 

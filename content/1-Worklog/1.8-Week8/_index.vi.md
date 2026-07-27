@@ -14,7 +14,7 @@ pre: " <b> 1.8. </b> "
 ### Các công việc triển khai trong tuần:
 | Tuần | Thời gian | Nội dung | Trạng thái hoàn thành | Nguồn tài liệu |
 | --- | --------- | -------- | --------------------- | -------------- |
-| 8 | 08/06/2026 - 14/06/2026 | Sử dụng Draw.io thiết kế sơ đồ kiến trúc hệ thống. Thảo luận nhóm, phân chia công việc và lên ý tưởng chọn đề tài cho dự án tốt nghiệp cuối khóa. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
+| 8 | 08/06/2026 - 14/06/2026 | Sử dụng Draw.io thiết kế sơ đồ kiến trúc hệ thống. Thảo luận nhóm, phân chia công việc và lên ý tưởng chọn đề tài cho dự án tốt nghiệp cuối khóa.<br>Chi tiết bổ sung: phác thảo kiến trúc Stock Alerts System, xác định các thành phần frontend, backend, database và AI; phân chia nhiệm vụ nghiên cứu dịch vụ AWS, chuẩn bị sơ đồ luồng dữ liệu và thống nhất phạm vi chức năng MVP. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
 
 ### Kết quả đạt được tuần 8:
 

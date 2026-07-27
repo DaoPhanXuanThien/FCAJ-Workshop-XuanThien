@@ -14,7 +14,7 @@ pre: " <b> 1.10. </b> "
 ### Các công việc triển khai trong tuần:
 | Tuần | Thời gian | Nội dung | Trạng thái hoàn thành | Nguồn tài liệu |
 | --- | --------- | -------- | --------------------- | -------------- |
-| 10 | 22/06/2026 - 05/07/2026 | Triển khai viết mã nguồn cho dự án: Sử dụng Lambda kết hợp EventBridge để cào dữ liệu lưu vào S3, tích hợp AWS Bedrock và SQS để xử lý dữ liệu. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
+| 10 | 22/06/2026 - 05/07/2026 | Triển khai viết mã nguồn cho dự án: Sử dụng Lambda kết hợp EventBridge để cào dữ liệu lưu vào S3, tích hợp AWS Bedrock và SQS để xử lý dữ liệu.<br>Chi tiết bổ sung: xây dựng Ingestion Lambda lấy dữ liệu cổ phiếu và lưu JSON vào S3, thiết kế message gửi qua SQS, viết Processing Lambda tính RSI/MACD/MA/Volume, chuẩn bị prompt gửi Bedrock và lưu kết quả phân tích vào DynamoDB. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
 
 ### Kết quả đạt được tuần 10:
 

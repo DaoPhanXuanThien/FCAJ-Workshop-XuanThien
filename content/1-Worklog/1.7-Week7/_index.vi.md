@@ -14,7 +14,7 @@ pre: " <b> 1.7. </b> "
 ### Các công việc triển khai trong tuần:
 | Tuần | Thời gian | Nội dung | Trạng thái hoàn thành | Nguồn tài liệu |
 | --- | --------- | -------- | --------------------- | -------------- |
-| 7 | 01/06/2026 - 07/06/2026 | Tham gia các buổi Tech Talk chia sẻ kinh nghiệm thực tế. Nghiên cứu dịch vụ tường lửa AWS WAF để bảo vệ ứng dụng web khỏi các lỗ hổng bảo mật. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
+| 7 | 01/06/2026 - 07/06/2026 | Tham gia các buổi Tech Talk chia sẻ kinh nghiệm thực tế. Nghiên cứu dịch vụ tường lửa AWS WAF để bảo vệ ứng dụng web khỏi các lỗ hổng bảo mật.<br>Chi tiết bổ sung: tổng hợp nội dung chính từ Tech Talk, tìm hiểu AWS Managed Rules, SQL Injection, XSS và rate-based rule; ghi chú cách đặt WAF trước CloudFront để bảo vệ giao diện web của project. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
 
 ### Kết quả đạt được tuần 7:
 

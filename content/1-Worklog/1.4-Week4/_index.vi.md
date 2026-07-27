@@ -14,7 +14,7 @@ pre: " <b> 1.4. </b> "
 ### Các công việc triển khai trong tuần:
 | Tuần | Thời gian | Nội dung | Trạng thái hoàn thành | Nguồn tài liệu |
 | --- | --------- | -------- | --------------------- | -------------- |
-| 4 | 11/05/2026 - 17/05/2026 | Cấu hình kế hoạch sao lưu tự động bằng AWS Backup. Cài đặt AWS CLI trên máy cá nhân để quản lý tài nguyên và nghiên cứu dịch vụ AWS Transit Gateway. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
+| 4 | 11/05/2026 - 17/05/2026 | Cấu hình kế hoạch sao lưu tự động bằng AWS Backup. Cài đặt AWS CLI trên máy cá nhân để quản lý tài nguyên và nghiên cứu dịch vụ AWS Transit Gateway.<br>Chi tiết bổ sung: tạo backup vault và backup plan thử nghiệm, kiểm tra credential/region bằng AWS CLI, ghi chú các lệnh CLI cơ bản và so sánh Transit Gateway với VPC Peering khi cần kết nối nhiều VPC. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
 
 ### Kết quả đạt được tuần 4:
 

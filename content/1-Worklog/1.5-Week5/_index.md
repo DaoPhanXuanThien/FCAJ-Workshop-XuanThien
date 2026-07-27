@@ -14,7 +14,7 @@ pre: " <b> 1.5. </b> "
 ### Tasks carried out this week:
 | Week | Date Range | Task | Completion Status | Reference Material |
 | --- | ---------- | ---- | ----------------- | ------------------ |
-| 5 | 18/05/2026 - 24/05/2026 | Learned about Docker, packaged an application, and deployed it to Amazon EC2. Participated in the "FCAJ Community Day" event to exchange knowledge and learn new technologies. | Completed during the week | Internship progress tracking form |
+| 5 | 18/05/2026 - 24/05/2026 | Learned about Docker, packaged an application, and deployed it to Amazon EC2. Participated in the "FCAJ Community Day" event to exchange knowledge and learn new technologies.<br>Additional details: wrote a sample Dockerfile, built and tested the container locally, prepared the EC2 security group, checked deployment logs, and summarized event takeaways related to the project direction. | Completed during the week | Internship progress tracking form |
 
 ### Week 5 Achievements:
 

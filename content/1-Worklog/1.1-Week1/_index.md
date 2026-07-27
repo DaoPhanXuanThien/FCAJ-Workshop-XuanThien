@@ -14,7 +14,7 @@ pre: " <b> 1.1. </b> "
 ### Tasks carried out this week:
 | Week | Date Range | Task | Completion Status | Reference Material |
 | --- | ---------- | ---- | ----------------- | ------------------ |
-| 1 | 17/04/2026 - 23/04/2026 | Orientation and connection: attended the FCAJ program kickoff workshop; absorbed the AWS "Builder" and "Troubleshooter" mindset and Leadership Principles; formed the project team. Infrastructure and security setup: created an AWS Free Tier account, enabled multi-factor authentication (MFA), and configured AWS Budgets alerts to manage costs under the pay-as-you-go model. | Completed during the week | Internship progress tracking form |
+| 1 | 17/04/2026 - 23/04/2026 | Orientation and connection: attended the FCAJ program kickoff workshop; absorbed the AWS "Builder" and "Troubleshooter" mindset and Leadership Principles; formed the project team. Infrastructure and security setup: created an AWS Free Tier account, enabled multi-factor authentication (MFA), and configured AWS Budgets alerts to manage costs under the pay-as-you-go model.<br>Additional details: recorded program requirements, agreed on team working methods, assigned initial responsibilities, verified email/AWS account access, and kept an account security checklist before starting hands-on labs. | Completed during the week | Internship progress tracking form |
 
 ### Week 1 Achievements:
 

@@ -14,7 +14,7 @@ pre: " <b> 1.3. </b> "
 ### Các công việc triển khai trong tuần:
 | Tuần | Thời gian | Nội dung | Trạng thái hoàn thành | Nguồn tài liệu |
 | --- | --------- | -------- | --------------------- | -------------- |
-| 3 | 04/05/2026 - 10/05/2026 | Thiết lập cấu hình mạng VPC Peering để kết nối dữ liệu nội bộ. Cấu hình Route 53 Resolver và kết nối Microsoft AD để đồng bộ hệ thống định danh. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
+| 3 | 04/05/2026 - 10/05/2026 | Thiết lập cấu hình mạng VPC Peering để kết nối dữ liệu nội bộ. Cấu hình Route 53 Resolver và kết nối Microsoft AD để đồng bộ hệ thống định danh.<br>Chi tiết bổ sung: phân tích CIDR để tránh trùng dải IP, cập nhật route table cho hai VPC, kiểm tra hướng phân giải DNS nội bộ và ghi chú vai trò của Microsoft AD trong mô hình xác thực tập trung. | Hoàn thành trong tuần | Phiếu theo dõi tiến độ thực tập |
 
 ### Kết quả đạt được tuần 3:
 

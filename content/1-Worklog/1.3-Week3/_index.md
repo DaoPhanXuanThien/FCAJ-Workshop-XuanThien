@@ -14,7 +14,7 @@ pre: " <b> 1.3. </b> "
 ### Tasks carried out this week:
 | Week | Date Range | Task | Completion Status | Reference Material |
 | --- | ---------- | ---- | ----------------- | ------------------ |
-| 3 | 04/05/2026 - 10/05/2026 | Set up VPC Peering to connect internal data environments. Configured Route 53 Resolver and connected Microsoft AD to synchronize the identity system. | Completed during the week | Internship progress tracking form |
+| 3 | 04/05/2026 - 10/05/2026 | Set up VPC Peering to connect internal data environments. Configured Route 53 Resolver and connected Microsoft AD to synchronize the identity system.<br>Additional details: analyzed CIDR ranges to avoid IP overlap, updated route tables for both VPCs, checked internal DNS resolution flow, and documented the role of Microsoft AD in centralized authentication. | Completed during the week | Internship progress tracking form |
 
 ### Week 3 Achievements:
 

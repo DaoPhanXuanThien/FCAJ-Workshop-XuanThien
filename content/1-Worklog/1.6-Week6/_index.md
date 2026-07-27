@@ -14,7 +14,7 @@ pre: " <b> 1.6. </b> "
 ### Tasks carried out this week:
 | Week | Date Range | Task | Completion Status | Reference Material |
 | --- | ---------- | ---- | ----------------- | ------------------ |
-| 6 | 25/05/2026 - 31/05/2026 | Studied security standards with AWS Security Hub. Wrote AWS Lambda code to automate the EC2 server start/stop process to optimize costs. | Completed during the week | Internship progress tracking form |
+| 6 | 25/05/2026 - 31/05/2026 | Studied security standards with AWS Security Hub. Wrote AWS Lambda code to automate the EC2 server start/stop process to optimize costs.<br>Additional details: reviewed sample Security Hub findings, defined least-privilege IAM permissions for Lambda, designed the EC2 start/stop schedule with EventBridge, and documented how to verify instance state after function execution. | Completed during the week | Internship progress tracking form |
 
 ### Week 6 Achievements:
 
