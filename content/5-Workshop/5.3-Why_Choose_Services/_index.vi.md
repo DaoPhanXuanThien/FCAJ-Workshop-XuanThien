@@ -52,18 +52,3 @@ Mô hình có khả năng mở rộng tốt vì các thành phần được tác
 *   Nếu cần lưu nhiều báo cáo hơn, DynamoDB và S3 có thể tự động mở rộng theo dung lượng và lưu lượng truy cập.
 *   Nếu nhiều người truy cập Dashboard, CloudFront giúp phân phối frontend nhanh hơn và giảm tải cho S3.
 *   Nếu cần tăng khả năng bảo vệ ứng dụng, AWS WAF có thể bổ sung rule để chặn request độc hại theo thời gian thực.
-
----
-
-### Các bước cải tiến trong tương lai
-
-1.  **Mở rộng nguồn dữ liệu:** Hiện tại hệ thống chỉ sử dụng Yahoo Finance. Trong tương lai có thể bổ sung thêm các nguồn dữ liệu tài chính khác để đối chiếu giá, tăng độ tin cậy và hỗ trợ dữ liệu gần với thời gian thực hơn.
-2.  **Cải thiện mô hình phân tích AI:** Amazon Bedrock hiện chỉ phân tích dựa trên chỉ báo kỹ thuật cơ bản. Sau này có thể mở rộng thêm nhiều chỉ báo khác như Bollinger Bands, Stochastic, ADX hoặc ATR để AI có thêm dữ liệu đầu vào và đưa ra khuyến nghị chính xác hơn.
-3.  **Bổ sung cảnh báo thời gian thực:** Hệ thống có thể thêm chức năng tự động gửi cảnh báo tức thì khi giá cổ phiếu vượt ngưỡng thiết lập, chỉ số RSI rơi vào vùng quá mua/quá bán hoặc chỉ báo MACD đảo chiều.
-4.  **Hoàn thiện quy trình quản trị người dùng:** Phân quyền rõ ràng hơn giữa các vai trò: **Admin** (quản lý hệ thống/người dùng), **Trader** (kiểm duyệt và phê duyệt khuyến nghị), và **Customer** (chỉ nhận báo cáo hoặc xem lịch sử khuyến nghị).
-5.  **Tăng cường bảo mật:** Bổ sung thêm các lớp bảo mật nâng cao như cấu hình CloudWatch Alarms, thêm các AWS WAF Rules nâng cao, giới hạn tần suất request theo IP, kích hoạt audit log bằng CloudTrail.
-6.  **Tối ưu chi phí và hiệu năng:** Theo dõi chi phí qua AWS Cost Explorer, tối ưu hóa kích thước prompt để giảm số lượng token gửi đến Bedrock, cache dữ liệu cổ phiếu phổ biến và tinh chỉnh cấu hình RAM/Timeout của Lambda.
-7.  **Cải thiện giao diện Dashboard:** Nâng cấp thêm các biểu đồ trực quan (như TradingView Charts), bộ lọc theo mã cổ phiếu, trạng thái phê duyệt, độ tin cậy, khung thời gian và lịch sử các lần phân tích trước đó.
-8.  **Bổ sung quy trình CI/CD:** Thiết lập CI/CD bằng GitHub Actions hoặc AWS CodePipeline để tự động hóa quá trình build, test và deploy frontend/backend.
-9.  **Mở rộng khả năng scale:** Tối ưu hóa việc xử lý dữ liệu theo lô (batch processing), tăng concurrency giới hạn cho Lambda, cấu hình Dead-Letter Queue (DLQ) nâng cao và thiết lập Retry Policy rõ ràng.
-10. **Thêm cơ chế đánh giá độ chính xác:** Lưu lại kết quả biến động thực tế của cổ phiếu sau một khoảng thời gian (ví dụ 1 ngày, 1 tuần) để đối chiếu với khuyến nghị của AI, từ đó tinh chỉnh prompt và logic tính điểm tin cậy.

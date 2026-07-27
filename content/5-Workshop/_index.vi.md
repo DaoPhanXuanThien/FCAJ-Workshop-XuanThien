@@ -1,12 +1,12 @@
 ---
-title: "Báo cáo Dự án"
+title: "Workshop"
 date: 2026-07-09
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Báo cáo Dự án: Hệ thống Phân tích và Cảnh báo Giá Cổ phiếu
+# Workshop: Hệ thống Phân tích và Cảnh báo Giá Cổ phiếu
 
 Phần này tóm tắt quá trình nghiên cứu, xây dựng và triển khai dự án tốt nghiệp **Stock Alerts System** sử dụng kiến trúc AWS Serverless và Trí tuệ nhân tạo (Amazon Bedrock). Nội dung được chia thành các phần chính dưới đây:
 
@@ -17,7 +17,10 @@ Giới thiệu mục tiêu dự án, đối tượng khách hàng hướng tới
 Hướng dẫn chi tiết quy trình thiết lập tài khoản và triển khai thực tế các dịch vụ AWS trong hệ thống (S3, SQS, Lambda, KMS, DynamoDB, CloudFront, WAF, Cognito, API Gateway, Bedrock).
 
 ### 3. [Lý do lựa chọn kiến trúc](5.3-Why_Choose_Services/)
-Phân tích các tiêu chí lựa chọn giải pháp (tối ưu chi phí, Serverless, Managed Service, khả năng mở rộng) và đề xuất các định hướng cải tiến hệ thống trong tương lai.
+Phân tích các tiêu chí lựa chọn giải pháp, bao gồm tối ưu chi phí, kiến trúc Serverless, Managed Service và khả năng mở rộng.
 
 ### 4. [Kiểm thử & Xác minh kết quả](5.4-Test/)
 Ghi nhận quá trình chạy thử nghiệm hệ thống thực tế từ giao diện người dùng, theo dõi luồng xử lý bất đồng bộ qua các dịch vụ, kiểm tra log CloudWatch và cách xử lý lỗi hạn mức quota của Amazon Bedrock.
+
+### 5. [Cải tiến trong tương lai](5.5-Future_Improvements/)
+Đề xuất các hướng nâng cấp thực tế cho hệ thống, bao gồm chất lượng dữ liệu, phân tích AI, cảnh báo thời gian thực, bảo mật, vận hành, giao diện Dashboard, CI/CD và đo lường độ chính xác khuyến nghị.
