@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="560" viewBox="0 0 1180 560" role="img" aria-labelledby="title desc">
+  <title id="title">Serverless API with Amazon API Gateway and AWS Lambda</title>
+  <desc id="desc">Diagram showing users sending HTTP requests to API Gateway, which invokes Lambda functions that access DynamoDB, S3, and EventBridge, with monitoring in CloudWatch and IAM permissions.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#0f766e"/>
+    </marker>
+    <style>
+      .title{font:700 28px Arial,sans-serif;fill:#134e4a}
+      .label{font:700 18px Arial,sans-serif;fill:#102033}
+      .text{font:15px Arial,sans-serif;fill:#334155}
+      .small{font:13px Arial,sans-serif;fill:#64748b}
+      .client{fill:#f8fafc;stroke:#64748b;stroke-width:2;rx:12}
+      .api{fill:#ecfeff;stroke:#06b6d4;stroke-width:2;rx:12}
+      .lambda{fill:#fff7ed;stroke:#f97316;stroke-width:2;rx:12}
+      .data{fill:#eef2ff;stroke:#6366f1;stroke-width:2;rx:12}
+      .ops{fill:#f0fdf4;stroke:#22c55e;stroke-width:2;rx:12}
+      .arrow{stroke:#0f766e;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .dash{stroke:#94a3b8;stroke-width:2;stroke-dasharray:6 6;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1180" height="560" fill="#ffffff"/>
+  <text x="44" y="54" class="title">Serverless API: API Gateway + AWS Lambda</text>
+
+  <rect x="52" y="205" width="190" height="110" class="client"/>
+  <text x="80" y="244" class="label">User / Client</text>
+  <text x="80" y="276" class="text">HTTP Request</text>
+
+  <rect x="318" y="205" width="210" height="110" class="api"/>
+  <text x="346" y="244" class="label">Amazon API Gateway</text>
+  <text x="346" y="276" class="text">Entry point</text>
+  <text x="346" y="300" class="small">Rate limit, auth, routing</text>
+
+  <rect x="604" y="205" width="210" height="110" class="lambda"/>
+  <text x="632" y="244" class="label">AWS Lambda</text>
+  <text x="632" y="276" class="text">Business logic</text>
+  <text x="632" y="300" class="small">Pay per invocation</text>
+
+  <rect x="900" y="88" width="210" height="100" class="data"/>
+  <text x="928" y="126" class="label">Amazon DynamoDB</text>
+  <text x="928" y="158" class="text">Application data</text>
+
+  <rect x="900" y="230" width="210" height="100" class="data"/>
+  <text x="928" y="268" class="label">Amazon S3</text>
+  <text x="928" y="300" class="text">Files and objects</text>
+
+  <rect x="900" y="372" width="210" height="100" class="data"/>
+  <text x="928" y="410" class="label">EventBridge</text>
+  <text x="928" y="442" class="text">Event workflows</text>
+
+  <rect x="318" y="410" width="210" height="88" class="ops"/>
+  <text x="346" y="446" class="label">IAM Role</text>
+  <text x="346" y="476" class="text">Least privilege access</text>
+
+  <rect x="604" y="410" width="210" height="88" class="ops"/>
+  <text x="632" y="446" class="label">CloudWatch</text>
+  <text x="632" y="476" class="text">Logs and metrics</text>
+
+  <path d="M242 260 H308" class="arrow"/>
+  <path d="M528 260 H594" class="arrow"/>
+  <path d="M814 260 H890" class="arrow"/>
+  <path d="M814 242 C860 242 860 138 890 138" class="arrow"/>
+  <path d="M814 278 C860 278 860 422 890 422" class="arrow"/>
+  <path d="M708 315 V400" class="dash"/>
+  <path d="M604 454 H538" class="dash"/>
+</svg>
