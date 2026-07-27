@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Workshop: Hệ thống Phân tích và Cảnh báo Giá Cổ phiếu
+<h2 style="text-align: center;">Hệ thống Phân tích và Cảnh báo Giá Cổ phiếu</h2>
 
 Phần này tóm tắt quá trình nghiên cứu, xây dựng và triển khai dự án tốt nghiệp **Stock Alerts System** sử dụng kiến trúc AWS Serverless và Trí tuệ nhân tạo (Amazon Bedrock). Nội dung được chia thành các phần chính dưới đây:
 

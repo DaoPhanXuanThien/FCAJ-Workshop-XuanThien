@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Workshop: Stock Alerts System
+<h2 style="text-align: center;">Stock Alerts System</h2>
 
 This section summarizes the research, development, and deployment of the **Stock Alerts System** graduation project using AWS Serverless architecture and Generative AI (Amazon Bedrock). The content is organized into the following key parts:
 
